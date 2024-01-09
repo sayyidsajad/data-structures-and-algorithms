@@ -42,6 +42,23 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
+  bfs(startVertex) {
+    const vistited = {};
+    const queue = [];
+    vistited[startVertex] = true;
+    queue.push(startVertex);
+    while (queue.length > 0) {
+      const currentVertex = queue.shift();
+      console.log(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!vistited[neighbor]) {
+          vistited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+  }
+
   display() {
     for (let vertex in this.adjacencyList) {
       console.log(vertex, "-->", [...this.adjacencyList[vertex]]);
@@ -57,6 +74,8 @@ graph.addVertex("C");
 graph.addEdge("A", "B");
 graph.addEdge("B", "C");
 
-console.log(graph.hasEdge("A", "B"));
-graph.removeEdge("A", "B");
+graph.hasEdge("A", "B");
+
+graph.bfs("A");
+
 graph.display();
