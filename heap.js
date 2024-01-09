@@ -42,6 +42,18 @@ class MaxBinaryHeap {
     this.heapify(this.arr, n - 1, 0);
     return this.arr[0];
   }
+
+  heapSort() {
+    const n = this.arr.length;
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+      this.heapify(this.arr, n, i);
+    }
+    for (let i = n - 1; i > 0; i--) {
+      [this.arr[0], this.arr[i]] = [this.arr[i], this.arr[0]];
+      this.heapify(this.arr, i, 0);
+    }
+    return this.arr;
+  }
 }
 
 const heap = new MaxBinaryHeap();
@@ -51,3 +63,4 @@ heap.insert(2);
 heap.insert(20);
 heap.insert(4);
 console.log(heap.arr);
+console.log(heap.heapSort());
