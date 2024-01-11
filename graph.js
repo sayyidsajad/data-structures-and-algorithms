@@ -2,6 +2,7 @@ class Graph {
   constructor() {
     this.adjacencyList = {};
   }
+
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = new Set();
@@ -42,8 +43,33 @@ class Graph {
   }
 
   display() {
-    for (let vertex of this.adjacencyList[vertex]) {
+    for (let vertex in this.adjacencyList) {
       console.log(vertex + "-->" + [...this.adjacencyList[vertex]]);
     }
   }
+
+  bfs(startVertex) {
+    let queue = [];
+    const visited = {};
+    visited[startVertex] = true;
+    queue.push(startVertex);
+    while (queue.length) {
+      let currentVertex = queue.shift();
+      console.log(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+  }
 }
+const graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addEdges("A", "B");
+graph.addEdges("B", "C");
+graph.display();
+graph.bfs('B')
