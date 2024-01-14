@@ -131,6 +131,19 @@ class LinkedList {
     this.head = prev;
   }
 
+  hasCycle() {
+    let slow = this.head;
+    let fast = this.head;
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow === fast) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -150,8 +163,10 @@ list.prepend(5);
 list.prepend(1);
 list.prepend(8);
 list.prepend(3);
-list.prepend(1);
+console.log(list.hasCycle());
+
 list.prepend(8);
-list.print()
-list.reverse()
-list.print()
+list.prepend(3);
+list.prepend(1);
+list.reverse();
+

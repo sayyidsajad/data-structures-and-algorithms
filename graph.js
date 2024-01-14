@@ -71,5 +71,6 @@ graph.addVertex("B");
 graph.addVertex("C");
 graph.addEdges("A", "B");
 graph.addEdges("B", "C");
+graph.removeVertex('A')
 graph.display();
 graph.bfs('B')
