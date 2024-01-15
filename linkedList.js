@@ -163,7 +163,6 @@ list.prepend(5);
 list.prepend(1);
 list.prepend(8);
 list.prepend(3);
-console.log(list.hasCycle());
 
 list.prepend(8);
 list.prepend(3);
