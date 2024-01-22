@@ -10,4 +10,3 @@ function insertionSort(arr) {
   return arr;
 }
 let arr = [-6, 5, 2, 0, 3];
-console.log(insertionSort(arr));
