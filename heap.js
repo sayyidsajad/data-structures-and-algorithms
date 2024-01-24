@@ -63,4 +63,3 @@ heap.insert(2);
 heap.insert(20);
 heap.insert(4);
 console.log(heap.arr);
-console.log(heap.heapSort());
