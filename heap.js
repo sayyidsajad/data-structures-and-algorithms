@@ -62,4 +62,3 @@ heap.insert(5);
 heap.insert(2);
 heap.insert(20);
 heap.insert(4);
-console.log(heap.arr);
