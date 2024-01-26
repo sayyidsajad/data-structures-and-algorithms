@@ -144,40 +144,40 @@ class Graph {
       }
       console.log("Minimum Spanning Tree (Prim's Algorithm):", result);
     }
-    // kruskal() {
-    //   const result = [];
-    //   const edges = [];
-    //   for (let vertex in this.adjList) {
-    //     for (let neighbor in this.adjList[vertex]) {
-    //       edges.push({
-    //         edge: [vertex, neighbor],
-    //         weight: this.adjList[vertex][neighbor],
-    //       });
-    //     }
-    //   }
-    //   edges.sort((a, b) => a.weight - b.weight);
-    //   const parent = {};
-    //   const find = (vertex) => {
-    //     if (parent[vertex] === undefined) return vertex;
-    //     return find(parent[vertex]);
-    //   };
-    //   const union = (x, y) => {
-    //     const rootX = find(x);
-    //     const rootY = find(y);
-    //     if (rootX !== rootY) {
-    //       parent[rootX] = rootY;
-    //       return true;
-    //     }
-    //     return false;
-    //   };
-    //   edges.forEach(({ edge, weight }) => {
-    //     const [from, to] = edge;
-    //     if (union(from, to)) {
-    //       result.push({ edge, weight });
-    //     }
-    //   });
-    //   console.log("Minimum Spanning Tree (Kruskal's Algorithm):", result);
-    // }
+    kruskal() {
+      const result = [];
+      const edges = [];
+      for (let vertex in this.adjList) {
+        for (let neighbor in this.adjList[vertex]) {
+          edges.push({
+            edge: [vertex, neighbor],
+            weight: this.adjList[vertex][neighbor],
+          });
+        }
+      }
+      edges.sort((a, b) => a.weight - b.weight);
+      const parent = {};
+      const find = (vertex) => {
+        if (parent[vertex] === undefined) return vertex;
+        return find(parent[vertex]);
+      };
+      const union = (x, y) => {
+        const rootX = find(x);
+        const rootY = find(y);
+        if (rootX !== rootY) {
+          parent[rootX] = rootY;
+          return true;
+        }
+        return false;
+      };
+      edges.forEach(({ edge, weight }) => {
+        const [from, to] = edge;
+        if (union(from, to)) {
+          result.push({ edge, weight });
+        }
+      });
+      console.log("Minimum Spanning Tree (Kruskal's Algorithm):", result);
+    }
   
     display() {
       for (let vertex in this.adjList) {
