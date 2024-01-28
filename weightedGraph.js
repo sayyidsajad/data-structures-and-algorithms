@@ -203,4 +203,3 @@ class Graph {
   g.addEdge("C", "E", 2);
   g.addEdge("C", "D", 6);
   g.addEdge("E", "D", 7);
-  g.dijkstra('A')
