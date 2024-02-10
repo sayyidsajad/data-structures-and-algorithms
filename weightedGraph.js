@@ -200,5 +200,4 @@ class Graph {
   g.addEdge("A", "E", 1);
   g.addEdge("B", "C", 3);
   g.addEdge("B", "E", 8);
-  g.addEdge("C", "E", 2);
 
